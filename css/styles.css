@@ -1,104 +1,171 @@
 :root {
-    --clr-white: #fff;
-    --clr-black: #000;
-    --ff-main: "Poppins", sans-serif;
-    --font-weight: 400;
-    --fw-bold: 700;
-    --fw-medium: 500;
-    --font-size: 16px;
-    --transition-time: 0.3s;
+  --clr-white: #fff;
+  --clr-black: #000;
+  --clr-dark: #333d4b;
+  --clr-orange: #fdd6ba;
+  --clr-grey: #83888f;
+  --clr-light: #fefcf7;
+  --clr-light-100: #e2dedb;
+  --clr-primary: #0e8784;
+  --clr-primary-100: #66d2cf;
+  --ff-main: "Fraunces", sans-serif;
+  --font-weight-100: 400;
+  --font-weight-200: 900;
+  --fz: 12px;
+  --fz-100: 16px;
+  --fz-200: 18px;
+  --fz-300: 24px;
+  --fz-400: 32px;
+  --fz-500: 40px;
+  --fz-600: 72px;
+  --fz-700: 150px;
+  --lh-100: 15px;
+  --lh-200: 26px;
+  --lh-300: 32px;
+  --lh-400: 36px;
+  --lh-500: 48px;
+  --lh-600: 72px;
+  --transition-time: 0.3s;
+  --btn-radius: 6px;
 }
 
 /*******************************
     GENERAL STYLES
 ********************************/
 
-*,*::before,*::after{
-    box-sizing: inherit;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
-html{
-    height: 100%;
-    box-sizing: border-box;
+html {
+  height: 100%;
+  box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    margin: 0;
-    font-family:var(--ff-main);
-    scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  font-family: var(--ff-main);
+  scroll-behavior: smooth;
 }
 
 img {
-    display: block;
-    height: auto;
+  display: block;
+  height: auto;
 }
 
 ul {
-    list-style: none;
-    padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
+/*******************************
+    UTILITY CLASSES
+********************************/
 
-h1,
-h2,
-h3,
-h4,
-p {
-    margin: 0;
-}
-
-.btn{
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
+/* sticky footer */
+.site-main {
+  flex-grow: 1;
 }
 
 .container {
-    width: 1240px;
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: 20px;
-    padding-left: 20px;
+  width: 1240px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 .visually-hidden {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
-/* sticky footer */
-.site-main{
-    flex-grow: 1;
+/* typography */
+
+.text-black {
+  color: var(--clr-black);
 }
 
-.text-black{
-    color: var(--clr-black);
+.text-white {
+  color: var(--clr-white);
 }
 
-.text-white{
-    color: var(--clr-white);
+.fw-bold {
+  font-weight: var(--fw-bold);
 }
 
-.fw-bold{
-    font-weight: var(--fw-bold);
+.fw-medium {
+  font-weight: var(--fw-medium);
 }
 
-.fw-medium{
-    font-weight: var(--fw-medium);
+.d-flex {
+  display: flex;
 }
 
-.d-flex{
-    display: flex;
+h1 {
+  font-weight: var(--font-weight-200);
+  font-size: var(--fz-600);
+  line-height: var(--lh-600);
+  color: var(--clr-dark);
+}
+
+h2 {
+  font-weight: var(--font-weight-200);
+  font-size: var(--fz-500);
+  line-height: var(--lh-500);
+  color: var(--clr-dark);
+}
+
+h3 {
+  font-weight: var(--font-weight-200);
+  font-size: var(--fz-300);
+  line-height: var(--lh-400);
+  color: var(--clr-dark);
+}
+h4 {
+  font-weight: var(--font-weight-200);
+  font-size: var(--fz-300);
+  line-height: var(--lh-300);
+  color: var(--clr-dark);
+}
+
+/* buttons */
+
+.btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn-primary {
+  padding: 15px 75px;
+  text-align: center;
+  font-size: var(--fz-200);
+  line-height: var(--lh-200);
+  border-radius: var(--btn-radius);
+  color: var(--clr-light);
+  background-color: var(--clr-primary);
+  transition: background var(--transition-time) ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--clr-primary-100);
+}
+
+.btn-primary[disabled] {
+  background-color: var(--clr-light-100);
 }
