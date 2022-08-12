@@ -9,12 +9,49 @@
     <!-- css -->
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/normalize.css">
+
+    <!-- script -->
+    <script src="./script/nav.js" defer></script>
 </head>
 
 <body>
     <!-- site header start -->
-    <header class="site-header">
-        <div class="container"></div>
+    <header class="site-header header">
+        <div class="container">
+            <div class="header__wrapper">
+                <a class="site-logo logo" href="./index.html">
+                    <img class="logo__img" src="./images/logo.svg" width="163" height="18" alt="Cofferoasters' Logo">
+                </a>
+
+                <!-- hamburger -->
+                <div class="site-hamburger hamburger" id="navToggle" aria-controls="primaryNavigation" >
+                    <div class="hamburger__line line" aria-hidden="true"></div>
+                    <div class="hamburger__line line" aria-hidden="true"></div>
+                    <div class="hamburger__line line" aria-hidden="true"></div>
+                </div>
+
+                <!-- navigation -->
+                <nav class="navigation" id="primaryNavigation" aria-label="Primary navigation">
+                    <ul class="navigation__list | flex" aria-label="Navigation list">
+                        <li class="navigation__item">
+                            <a class="navigation__link  | text-grey uppercase" href="#">
+                                HOME
+                            </a>
+                        </li>
+                        <li class="navigation__item">
+                            <a class="navigation__link  | text-grey uppercase" href="#">
+                                ABOUT US
+                            </a>
+                        </li>
+                        <li class="navigation__item">
+                            <a class="navigation__link  | text-grey uppercase" href="#">
+                                Create your plan
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </header>
 
     <!-- site header end -->
@@ -22,9 +59,23 @@
     <!-- main content start -->
     <main class="site-main">
         <!-- hero section start -->
-        <section class="hero">
-            <div class="container"></div>
-        </section>
+        <div class="container">
+            <section class="hero">
+                <div class="hero__wrapper | flow">
+                    <h1 class="hero__title | text-light">Great coffee
+                        made simple.</h1>
+
+                    <p class="hero__text | text-light op-08">
+                        Start your mornings with the world’s best coffees. Try our expertly curated artisan
+                        coffees from our best roasters delivered directly to your door, at your schedule.
+                    </p>
+
+                    <button class="hero__btn | btn btn-primary">
+                        Create your plan
+                    </button>
+                </div>
+            </section>
+        </div>
         <!-- hero section end -->
     </main>
     <!-- main content end -->

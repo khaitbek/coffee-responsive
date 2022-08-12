@@ -8,9 +8,11 @@
   --clr-light-100: #e2dedb;
   --clr-primary: #0e8784;
   --clr-primary-100: #66d2cf;
-  --ff-main: "Fraunces", sans-serif;
+  --ff-main: "Fraunces", serif;
+  --ff-secondary: "Barlow", sans-serif;
   --font-weight-100: 400;
   --font-weight-200: 900;
+  --fw-nav: 700;
   --fz: 12px;
   --fz-100: 16px;
   --fz-200: 18px;
@@ -19,14 +21,95 @@
   --fz-500: 40px;
   --fz-600: 72px;
   --fz-700: 150px;
+  --fz-nav: var(--fz);
   --lh-100: 15px;
   --lh-200: 26px;
   --lh-300: 32px;
   --lh-400: 36px;
   --lh-500: 48px;
   --lh-600: 72px;
+  --lh-nav: var(--lh-100);
+  --nav-spacer: 33px;
   --transition-time: 0.3s;
   --btn-radius: 6px;
+  --spacer: 24px;
+  --header-spacer: 32px;
+  --container-spacer: 24px;
+  --hero-spacer: 100px 24px;
+  --hero-wrapper: 280px;
+  --btn-spacer: 15px 30px;
+  --sm: 320px;
+  --md: 768px;
+}
+
+/*******************************
+    FONTS
+********************************/
+
+/* fraunces-regular - latin */
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""),
+    url("../fonts/fraunces-v23-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/fraunces-v23-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* fraunces-500 - latin */
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("../fonts/fraunces-v23-latin-500.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/fraunces-v23-latin-500.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* fraunces-700 - latin */
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/fraunces-v23-latin-700.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/fraunces-v23-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* barlow-300 - latin */
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 300;
+  src: local(""), url("../fonts/barlow-v12-latin-300.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/barlow-v12-latin-300.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* barlow-regular - latin */
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/barlow-v12-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/barlow-v12-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* barlow-700 - latin */
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/barlow-v12-latin-700.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/barlow-v12-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* barlow-900 - latin */
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 900;
+  src: local(""), url("../fonts/barlow-v12-latin-900.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/barlow-v12-latin-900.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /*******************************
@@ -77,11 +160,10 @@ a {
 }
 
 .container {
-  width: 1240px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 20px;
-  padding-left: 20px;
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: var(--container-spacer, 20px);
 }
 
 .visually-hidden {
@@ -94,7 +176,57 @@ a {
   width: 1px;
 }
 
+.flex {
+  display: flex;
+}
+
+:where(.flow :not(:last-child)) {
+  margin-bottom: var(--spacer, 1em);
+}
+
 /* typography */
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--ff-main);
+}
+
+h1 {
+  font-weight: var(--font-weight-200);
+  font-size: var(--fz-500);
+  line-height: var(--lh-400);
+}
+
+h2 {
+  font-weight: var(--font-weight-200);
+  font-size: var(--fz-500);
+  line-height: var(--lh-500);
+  color: var(--clr-dark);
+}
+
+h3 {
+  font-weight: var(--font-weight-200);
+  font-size: var(--fz-300);
+  line-height: var(--lh-400);
+  color: var(--clr-dark);
+}
+
+h4 {
+  font-weight: var(--font-weight-200);
+  font-size: var(--fz-300);
+  line-height: var(--lh-300);
+  color: var(--clr-dark);
+}
+
+p {
+  font-family: var(--ff-secondary);
+  font-size: var(--fz-100);
+  font-weight: var(--font-weight-100);
+  line-height: var(--lh-200);
+  text-align: center;
+}
 
 .text-black {
   color: var(--clr-black);
@@ -112,35 +244,28 @@ a {
   font-weight: var(--fw-medium);
 }
 
-.d-flex {
-  display: flex;
+.text-light {
+  color: var(--clr-light);
 }
 
-h1 {
-  font-weight: var(--font-weight-200);
-  font-size: var(--fz-600);
-  line-height: var(--lh-600);
+.text-dark {
   color: var(--clr-dark);
 }
 
-h2 {
-  font-weight: var(--font-weight-200);
-  font-size: var(--fz-500);
-  line-height: var(--lh-500);
-  color: var(--clr-dark);
+.text-grey {
+  color: var(--clr-grey);
 }
 
-h3 {
-  font-weight: var(--font-weight-200);
-  font-size: var(--fz-300);
-  line-height: var(--lh-400);
-  color: var(--clr-dark);
+.text-gold {
+  color: var(--clr-orange);
 }
-h4 {
-  font-weight: var(--font-weight-200);
-  font-size: var(--fz-300);
-  line-height: var(--lh-300);
-  color: var(--clr-dark);
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.op-08 {
+  opacity: 0.8;
 }
 
 /* buttons */
@@ -152,9 +277,11 @@ h4 {
 }
 
 .btn-primary {
-  padding: 15px 75px;
+  padding: var(--btn-spacer);
   text-align: center;
   font-size: var(--fz-200);
+  font-weight: var(--font-weight-200);
+  line-height: var(--lh-200);
   line-height: var(--lh-200);
   border-radius: var(--btn-radius);
   color: var(--clr-light);
@@ -168,4 +295,211 @@ h4 {
 
 .btn-primary[disabled] {
   background-color: var(--clr-light-100);
+}
+
+/*******************************
+  HEADER
+********************************/
+
+.header {
+  padding-block: var(--header-spacer);
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* hamburger */
+.hamburger {
+  position: relative;
+  display: grid;
+  grid-row-gap: 3px;
+  cursor: pointer;
+}
+
+.hamburger[toggle] .line:first-child{
+  position: absolute;
+  transform: rotate(135deg);
+}
+
+.hamburger[toggle] .line:nth-child(2){
+  transform: scale(0);
+}
+
+.hamburger[toggle] .line:last-child{
+  position: absolute;
+  transform: rotate(-135deg);
+}
+
+.line {
+  width: 16px;
+  height: 3px;
+  border-radius: 1.5px;
+  background-color: var(--clr-dark);
+  transition: transform var(--transition-time) ease;
+}
+
+/* navigation */
+
+.navigation {
+  font-family: var(--ff-secondary);
+  font-weight: var(--fw-nav);
+  font-size: var(--fz-nav);
+  display: none;
+}
+
+.navigation__list {
+  margin: 0;
+}
+
+.navigation__item:not(:first-child) {
+  margin-left: 33px;
+}
+
+.navigation__link {
+  transition: color var(--transition-time) ease;
+}
+
+.navigation__link:hover {
+  color: var(--clr-dark);
+}
+
+/*******************************
+    MEDIA QUERIES
+********************************/
+
+@media only screen and (min-width: 768px) {
+  .container {
+    --container-spacer: 40px;
+  }
+  .navigation {
+    display: block;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    --container-spacer: 80px;
+  }
+}
+
+/*******************************
+    HERO
+********************************/
+
+.hero {
+  padding: var(--hero-spacer);
+  background-image: url("../images/hero-sm.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 15px;
+}
+
+.hero__wrapper {
+  display: grid;
+  justify-items: center;
+  max-width: var(--hero-wrapper);
+}
+.hero__title {
+  margin-top: 0;
+  font-weight: var(--font-weight-200);
+  font-size: var(--fz-500);
+  line-height: var(--lh-400);
+  text-align: center;
+}
+
+.hero__text {
+  mix-blend-mode: normal;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+  .hero {
+    background-image: url("../images/hero-sm@2x.jpg");
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .logo__img {
+    width: 236px;
+    height: 26px;
+  }
+  .hero {
+    --hero-spacer: 104px 54px;
+    background-image: url("../images/hero-md.jpg");
+  }
+  .hero__wrapper {
+    display: block;
+    --hero-wrapper: 400px;
+  }
+  .hero__title {
+    font-size: 48px;
+    line-height: var(--lh-500);
+    text-align: left;
+    /* width: 80%; */
+  }
+  .hero__text {
+    text-align: left;
+  }
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    .hero {
+      background-image: url("../images/hero-md@2x.jpg");
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .logo__img {
+    width: 236px;
+    height: 26px;
+  }
+
+  .hero {
+    --hero-spacer: 118px 86px;
+    background-image: url("../images/hero-lg.jpg");
+    background-position: center;
+  }
+
+  .hero__wrapper {
+    --hero-wrapper: 500px;
+  }
+
+  .hero__title {
+    font-size: var(--fz-600);
+    line-height: var(--lh-600);
+  }
+  .hero__text {
+    margin-right: 60px;
+    margin-bottom: 56px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    .hero {
+      background-image: url("../images/hero-lg@2x.jpg");
+    }
+  }
 }
