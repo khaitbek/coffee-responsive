@@ -5,5 +5,6 @@ const navToggle = document.getElementById("navToggle"),
 navToggle.addEventListener("click",()=>{
     navToggle.ariaExpanded = !navToggle.hasAttribute("toggle")
     navToggle.toggleAttribute("toggle")
-    primaryNav.classList.toggle("opened")
+    document.body.toggleAttribute("no-scroll")
+    primaryNav.classList.toggle("open")
 })
