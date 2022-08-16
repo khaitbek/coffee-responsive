@@ -421,6 +421,7 @@ p.text-light {
 
 .navigation {
   position: absolute;
+  z-index: 2;
   inset: 80px 0 0 0;
   padding-top: 40px;
   font-family: var(--ff-secondary);
@@ -625,7 +626,6 @@ p.text-light {
 }
 .collection__title::before {
   text-shadow: #000 1px 1px 2px;
-  content: "our collection";
   position: absolute;
   top: 0;
   left: 0;
@@ -641,7 +641,6 @@ p.text-light {
   top: 0;
   left: 0;
 }
-
 
 .collection__list {
   display: grid;
@@ -681,12 +680,12 @@ p.text-light {
 }
 
 @media screen and (min-width: 768px) {
-  .collection__title{
+  .collection__title {
     font-size: 96px;
     height: 118px;
     margin-bottom: -50px;
   }
-  .collection__title::after{
+  .collection__title::after {
     display: flex;
     width: 100%;
     height: 100%;
@@ -709,13 +708,10 @@ p.text-light {
   .collection__item {
     grid-auto-flow: row;
   }
-
-  
-  
 }
 
-@media only screen and (min-width:1440px){
-  .collection__title{
+@media only screen and (min-width: 1440px) {
+  .collection__title {
     font-size: 150px;
   }
 }
@@ -1042,5 +1038,151 @@ p.text-light {
   .footer__list {
     grid-auto-flow: column;
     column-gap: 24px;
+  }
+}
+
+/*******************************
+    ABOUT PAGE
+********************************/
+
+/* utility classes for the about page */
+
+.cols-2{
+  display: grid;
+  grid-row-gap: 48px;
+}
+
+.about-hero {
+  margin-bottom: var(--section-margin);
+  padding-inline: 85px;
+  background-image: url("../images/about-mobile.jpg");
+}
+
+.about-hero .hero__title{
+  font-weight: var(--font-weight-200);
+  font-size: var(--fz-300);
+  line-height: var(--lh-200);
+}
+
+.about-hero .hero__text{
+  font-size: var(--fz-100);
+  line-height: var(--lh-200);
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+  /* retina images */
+  .about-hero {
+    background-image: url("../images/about-mobile@2x.jpg");
+  }
+}
+
+@media only screen and (min-width:320px) and (max-width:374px) {
+  .about-hero .hero__title{
+    font-size: var(--fz-200);
+  }
+  .about-hero .hero__text{
+    font-size: 12px;
+    line-height: var(--lh-100);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .about-hero {
+    --hero-spacer:137px;
+    background-image: url("../images/about.jpg");
+    background-position: inherit;
+  }
+  .about-hero .hero__title{
+    font-size: var(--fz-400);
+    line-height: var(--lh-400);
+  }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    /* retina images */
+    .about-hero {
+      background-image: url("../images/about@2x.jpg");
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .about-hero {
+    --hero-spacer:100px 0;
+    background-image: url("../images/about-desktop.jpg");
+    background-size: contain;
+  }
+
+  .about-hero .hero__title{
+    font-size: var(--fz-500);
+    line-height: var(--lh-500);
+  }
+
+  .about-hero .hero__text{
+    font-size: var(--fz-100);
+    line-height: var(--lh-200);
+  }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    /* retina images */
+    .about-hero {
+      background-image: url("../images/about-desktop@2x.jpg");
+    }
+  }
+}
+
+.commitment{
+  margin-bottom: 200px;
+}
+.commitment__wrapper{
+  place-items: center;
+}
+.commitment__inner{
+  display: grid;
+  grid-row-gap: 30px;
+  place-items: center;
+  max-width: 500px;
+}
+
+.commitment__title{
+  font-size: var(--fz-400);
+  margin: 0;
+}
+
+.commitment__text{
+  margin: 0;
+}
+
+@media screen and (min-width:768px){
+  .commitment{
+    margin-bottom: 144px;
+  }
+  .cols-2{
+    grid-auto-flow: column;
+    grid-column-gap: 70px;
+  }
+  .commitment__img{
+    width: 281px;
+    height: 470px;
+  }
+}
+
+@media only screen and (min-width:1440px){
+  .commitment__img{
+    width: 445px;
+    height: 520px;
+    object-fit: cover;
   }
 }
