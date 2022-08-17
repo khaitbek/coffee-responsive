@@ -1399,9 +1399,10 @@ p.text-light {
 }
 
 .headquarters-title {
-  font-size: 50px;
-  text-align: center;
+  font-size: var(--fz-300);
+  text-align: left;
   line-height: 59px;
+  color: #83888f;
 }
 
 .headquarters-list {
